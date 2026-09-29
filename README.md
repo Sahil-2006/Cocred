@@ -13,21 +13,47 @@ Implement core student account functionality including registration, login, and 
 
 **Branch**: `us1-student-registration`
 
-**Status**: ✅ Implemented
+**Status**: ✅ Completed
 
-### 🔄 US2 – Student Login
+**Features**:
+- Full name, email, register number, password fields
+- Client-side validation (required fields, email format, password match)
+- Duplicate email prevention
+- Secure password hashing via Supabase Auth
+- Success message and redirect to login
+
+### ✅ US2 – Student Login
 **As a Student**, I want to securely log in using my email and password so that I can access my account.
 
 **Branch**: `us2-student-login`
 
-**Status**: 🔄 In Progress
+**Status**: ✅ Completed
 
-### 📝 US3 – Student Profile
+**Features**:
+- Email and password authentication
+- Invalid credentials error handling
+- JWT-based session management
+- Protected routes (Dashboard, Profile)
+- Automatic redirect if already logged in
+- Logout functionality
+- Student Dashboard with profile summary and quick stats
+
+### ✅ US3 – Student Profile
 **As a Student**, I want to view and edit my profile so that my personal and academic information can be stored and managed.
 
 **Branch**: `us3-student-profile`
 
-**Status**: ⏳ Pending
+**Status**: ✅ Completed
+
+**Features**:
+- View mode showing all profile information
+- Edit mode with inline editing
+- Profile fields: full name, register number, department, programme, year/semester, phone
+- Email is read-only (managed by authentication)
+- Form validation
+- Save changes with success/error feedback
+- Profile updates persist after refresh/logout
+- Account creation and last updated timestamps
 
 ## 🛠️ Technologies Used
 
@@ -188,31 +214,60 @@ Or push to GitHub and import the repository in Vercel Dashboard.
    - Go to Project Settings → Environment Variables
    - Add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`
 
-## 📱 Sprint 1 Demo Flow
+## 📱 Sprint 1 Complete Flow
 
-### Current Working Flow (US1 Completed)
+### ✅ Working Flow
 
 1. **Landing Page** (`/`)
-   - View platform features
+   - View platform features and benefits
    - Navigate to Signup or Login
+   - Auto-redirect to dashboard if already logged in
 
 2. **Student Registration** (`/signup`) ✅
-   - Fill registration form
-   - Validate all required fields
-   - Check email format
-   - Verify password match
-   - Prevent duplicate email registration
-   - Secure password hashing (handled by Supabase Auth)
+   - Fill registration form with validation
+   - Required fields: Full Name, Email, Register Number, Password, Confirm Password
+   - Email format validation
+   - Password match verification
+   - Duplicate email prevention
+   - Secure password hashing
    - Success message and redirect to login
+   - Auto-redirect to dashboard if already logged in
 
-3. **Login** (`/login`) 🔄
-   - Coming in US2
+3. **Student Login** (`/login`) ✅
+   - Login with email and password
+   - Authentication validation
+   - Error handling for invalid credentials
+   - JWT session creation
+   - Redirect to dashboard on success
+   - Auto-redirect to dashboard if already logged in
 
-4. **Dashboard** (`/dashboard`) 🔄
-   - Coming in US2
+4. **Student Dashboard** (`/dashboard`) ✅
+   - Protected route (requires authentication)
+   - Welcome message with student name
+   - Quick stats (credentials, verified, shared)
+   - Profile summary card
+   - Profile completion alert
+   - Empty state for credentials (future sprint)
+   - Quick actions (future sprint)
 
-5. **Profile** (`/profile`) ⏳
-   - Coming in US3
+5. **Student Profile** (`/profile`) ✅
+   - Protected route (requires authentication)
+   - View profile information
+   - Avatar with student initial
+   - Personal information: Full Name, Email (read-only), Register Number, Phone
+   - Academic information: Department, Programme, Year/Semester
+   - Account information: Created date, Last updated date
+   - Edit profile functionality
+   - Form validation
+   - Save changes with persistence
+   - Success/error feedback messages
+   - Cancel editing option
+
+6. **Logout** ✅
+   - Available in navbar
+   - Clears authentication session
+   - Redirects to login page
+   - All protected routes become inaccessible
 
 ## 🌿 Branch Structure
 
@@ -225,22 +280,30 @@ main (stable, production-ready)
 
 ### Branch Workflow
 
-1. **US1** (`us1-student-registration`)
+1. **US1** (`us1-student-registration`) ✅
    - Implemented student registration
    - Form validation
    - Duplicate prevention
-   - Merged to `main` after testing
+   - Database schema
+   - **Merged to `main`**
+   - **Pushed to GitHub**
 
-2. **US2** (`us2-student-login`)
-   - Will implement login functionality
+2. **US2** (`us2-student-login`) ✅
+   - Implemented login functionality
    - Session management
    - Protected routes
-   - Logout
+   - Dashboard page
+   - Logout functionality
+   - **Merged to `main`**
+   - **Pushed to GitHub**
 
-3. **US3** (`us3-student-profile`)
-   - Will implement profile view/edit
+3. **US3** (`us3-student-profile`) ✅
+   - Implemented profile view/edit
    - Profile persistence
+   - Form validation
    - Access control
+   - **Merged to `main`**
+   - **Pushed to GitHub**
 
 ## 🧪 Testing
 
